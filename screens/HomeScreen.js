@@ -11,26 +11,26 @@ import {
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
+import MatchContainer from '../components/MatchContainer';
+import getLogo from '../utils/getLogo';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
     <Text style={styles.warningText}>Last Match</Text>
-      <View style={styles.lastmatch}>
-        <View style={styles.team}>
-          <Image style={styles.logo} source={require('../assets/images/icon.png')} />
-          <Text style={[styles.tabBarInfoText , styles.homeTeam]}>Nassaji</Text>
-        </View>
-        <View>
-          <Text>Last Match</Text>
-          <Text>Sirjan Stadium</Text>
-          <Text>1    vs     1</Text>
-        </View>
-        <View style={styles.team}>
-          <Image style={styles.logo} source={require('../assets/images/logo/Golgoharfclogo.png')} />
-          <Text style={[styles.awayTeam , styles.tabBarInfoText]}>Gol Gohar</Text>
-        </View>
-      </View>
+      <MatchContainer
+        homeName='Nassaji'
+        homeLogo={getLogo('Nassaji')}
+        homeScore='2'
+        awayName='Gol Gohar'
+        awayLogo={getLogo('Gol Gohar')}
+        awayScore='1'
+        matchDate='2019/08/21'
+        matchLeague='Persian Gulf Pro League'
+        matchFixture='Fixture 1'
+        stadium='Sirjan Stadium'
+        />
+
     </View>
   );
 }
