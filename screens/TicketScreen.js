@@ -2,20 +2,20 @@ import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
-export default function LinksScreen() {
+export default function TicketScreen() {
   return (
     <ScrollView style={styles.container}>
       {/**
-       * Go ahead and delete ExpoLinksView and replace it with your content;
-       * we just wanted to provide you with some helpful links.
+       * Go ahead and delete ExpoTicketView and replace it with your content;
+       * we just wanted to provide you with some helpful Ticket.
        */}
       <ExpoLinksView />
     </ScrollView>
   );
 }
 
-LinksScreen.navigationOptions = {
-  title: 'Links',
+TicketScreen.navigationOptions = {
+  title: 'Ticket',
 };
 
 const styles = StyleSheet.create({
