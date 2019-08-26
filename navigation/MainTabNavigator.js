@@ -4,7 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import TicketScreen from '../screens/TicketScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const config = Platform.select({
@@ -26,30 +26,44 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? 'ios-home'
+          : 'md-home'
       }
     />
   ),
+  tabBarOptions: {
+    activeTintColor: '#2f3f99',
+    pressColor: 'gray',//for click (ripple) effect color
+    style: {
+      backgroundColor: '#a21d21',//color you want to change
+    }
+  },
 };
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const TicketStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Ticket: TicketScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+TicketStack.navigationOptions = {
+  tabBarLabel: 'Ticket',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-card' : 'md-card'} />
   ),
+  tabBarOptions: {
+    activeTintColor: '#2f3f99',
+    pressColor: 'gray',//for click (ripple) effect color
+    style: {
+      backgroundColor: '#a21d21',//color you want to change
+    }
+  },
 };
 
-LinksStack.path = '';
+TicketStack.path = '';
 
 const SettingsStack = createStackNavigator(
   {
@@ -63,13 +77,20 @@ SettingsStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
   ),
+  tabBarOptions: {
+    activeTintColor: '#2f3f99',
+    pressColor: 'gray',//for click (ripple) effect color
+    style: {
+      backgroundColor: '#a21d21',//color you want to change
+    }
+  },
 };
 
 SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  TicketStack,
   SettingsStack,
 });
 
