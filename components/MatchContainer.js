@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
   },
   team:{
     alignItems: 'center',
+    marginRight: 10,
   },
   homeTeam:{
     textAlign: 'left',
@@ -82,7 +83,6 @@ const styles = StyleSheet.create({
   },
   awayTeam:{
     textAlign: 'right',
-    margin: 5
   },
   logo:{
     alignItems: 'center',
