@@ -15,54 +15,20 @@ import { MonoText } from '../components/StyledText';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
+    <Text style={styles.warningText}>Last Match</Text>
+      <View style={styles.lastmatch}>
+        <View style={styles.team}>
+          <Image style={styles.logo} source={require('../assets/images/icon.png')} />
+          <Text style={[styles.tabBarInfoText , styles.homeTeam]}>Nassaji</Text>
         </View>
-
-        <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
-
-          <Text style={styles.getStartedText}>Get started by opening</Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
-          </View>
-
-          <Text style={styles.getStartedText}>
-            Change this text and your app will automatically reload.
-          </Text>
+        <View>
+          <Text>Last Match</Text>
+          <Text>Sirjan Stadium</Text>
+          <Text>1    vs     1</Text>
         </View>
-
-        <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>
-              Help, it didn’t automatically reload!
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
-
-      <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>
-          This is a tab bar. You can edit it in:
-        </Text>
-
-        <View
-          style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>
-            navigation/MainTabNavigator.js
-          </MonoText>
+        <View style={styles.team}>
+          <Image style={styles.logo} source={require('../assets/images/logo/Golgoharfclogo.png')} />
+          <Text style={[styles.awayTeam , styles.tabBarInfoText]}>Gol Gohar</Text>
         </View>
       </View>
     </View>
@@ -73,46 +39,45 @@ HomeScreen.navigationOptions = {
   header: null,
 };
 
-function DevelopmentModeNotice() {
-  if (__DEV__) {
-    const learnMoreButton = (
-      <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-        Learn more
-      </Text>
-    );
-
-    return (
-      <Text style={styles.developmentModeText}>
-        Development mode is enabled: your app will be slower but you can use
-        useful development tools. {learnMoreButton}
-      </Text>
-    );
-  } else {
-    return (
-      <Text style={styles.developmentModeText}>
-        You are not in development mode: your app will run at full speed.
-      </Text>
-    );
-  }
-}
-
-function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/development-mode/'
-  );
-}
-
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
-  );
-}
-
 const styles = StyleSheet.create({
+  team:{
+    alignItems: 'center',
+  },
+  homeTeam:{
+    textAlign: 'left',
+  },
+  tabBarInfoText: {
+    fontSize: 17,
+    color: '#a21d21',
+    textAlign: 'center',
+    marginLeft: 5,
+    flexDirection: 'row',
+  },
+  awayTeam:{
+    textAlign: 'right',
+    margin: 5
+  },
+  logo:{
+    alignItems: 'center',
+    margin: 5,
+    width: 70,
+    height: 70,
+  },
+  lastmatch:{
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    marginTop: 50,
+    backgroundColor: '#fff',
+    marginHorizontal: 10,
+    borderRadius: 16,
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#a21d21',
   },
+
+
+
   developmentModeText: {
     marginBottom: 20,
     color: 'rgba(0,0,0,0.4)',
@@ -175,11 +140,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fbfbfb',
     paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
   },
   navigationFilename: {
     marginTop: 5,
