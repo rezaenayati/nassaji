@@ -1,4 +1,6 @@
 import React from 'react';
+import { Platform } from 'react-native';
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import {
   StyleSheet,
   View,
@@ -6,8 +8,8 @@ import {
   Dimensions,
   TouchableOpacity,
   Text,
+  WebBrowser
 } from 'react-native';
-
 
 const {height, width} = Dimensions.get('window');
 
@@ -52,12 +54,8 @@ export default class MatchContainer extends React.Component {
       </View>
     );
   }
-  _handlePress = () => {
-    WebBrowser.openBrowserAsync('');
-  };
 
 }
-
 
 const styles = StyleSheet.create({
   score:{
@@ -93,10 +91,10 @@ const styles = StyleSheet.create({
   match:{
     justifyContent: 'space-between',
     flexDirection: 'row',
-    marginTop: 50,
     backgroundColor: '#fff',
     marginHorizontal: 10,
     borderRadius: 16,
+    marginTop: 5,
   },
   container: {
     flex: 1,
