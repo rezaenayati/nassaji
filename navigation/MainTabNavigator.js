@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import TicketScreen from '../screens/TicketScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import MatchScreen from '../screens/MatchScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -15,6 +16,7 @@ const config = Platform.select({
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
+    Match: MatchScreen,
   },
   config
 );
@@ -33,9 +35,9 @@ HomeStack.navigationOptions = {
   ),
   tabBarOptions: {
     activeTintColor: '#2f3f99',
-    pressColor: 'gray',//for click (ripple) effect color
+    pressColor: 'gray',
     style: {
-      backgroundColor: '#a21d21',//color you want to change
+      backgroundColor: '#a21d21',
     }
   },
 };

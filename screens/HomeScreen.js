@@ -12,27 +12,56 @@ import {
 
 import { MonoText } from '../components/StyledText';
 import MatchContainer from '../components/MatchContainer';
+import NewsContainer from '../components/NewsContainer';
+import NextMatch from '../components/NextMatch';
+import NewsBox from '../components/NewsBox';
+import TableContainer from '../components/TableContainer';
 import getLogo from '../utils/getLogo';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-    <Text style={styles.warningText}>Last Match</Text>
-      <MatchContainer
-        homeName='Nassaji'
-        homeLogo={getLogo('Nassaji')}
-        homeScore='2'
-        awayName='Gol Gohar'
-        awayLogo={getLogo('Gol Gohar')}
-        awayScore='1'
-        matchDate='2019/08/21'
-        matchLeague='Persian Gulf Pro League'
-        matchFixture='Fixture 1'
-        stadium='Sirjan Stadium'
-        />
-
+      <TouchableOpacity style={styles.lastmatch} onPress={() => {console.log("New");;}}>
+        <MatchContainer
+          homeName='Nassaji'
+          homeLogo={getLogo('Nassaji')}
+          homeScore='1'
+          awayName='Gol Gohar'
+          awayLogo={getLogo('Gol Gohar')}
+          awayScore='1'
+          matchDate='2019/08/21'
+          matchLeague='Persian Gulf Pro League'
+          matchFixture='Fixture 1'
+          stadium='Sirjan Stadium'
+          />
+      </TouchableOpacity>
+      <View style={styles.containerBox}>
+        <NewsBox />
+        <View style={styles.temp}>
+          <View style={styles.temp1}>
+          <NextMatch
+          homeName='Nassaji'
+          homeLogo={getLogo('Nassaji')}
+          homeScore='1'
+          awayName='Gol Gohar'
+          awayLogo={getLogo('Gol Gohar')}
+          awayScore='1'
+          matchDate='2019/08/21'
+          matchLeague='Persian Gulf Pro League'
+          matchFixture='Fixture 1'
+          stadium='Sirjan Stadium'
+          />
+          </View>
+          <View style={styles.temp2}>
+            <TableContainer />
+          </View>
+        </View>
+      </View>
     </View>
   );
+  _handlePress = () => {
+    console.log("Haha");
+  };
 }
 
 HomeScreen.navigationOptions = {
@@ -40,6 +69,21 @@ HomeScreen.navigationOptions = {
 };
 
 const styles = StyleSheet.create({
+  temp:{
+    width: 190,
+  },
+  temp1:{
+  },
+  temp2:{
+    marginTop: 5,
+    backgroundColor: 'yellow',
+  },
+  containerBox:{
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    margin: 5,
+  },
   team:{
     alignItems: 'center',
   },
@@ -66,7 +110,7 @@ const styles = StyleSheet.create({
   lastmatch:{
     justifyContent: 'space-between',
     flexDirection: 'row',
-    marginTop: 50,
+    marginTop: 30,
     backgroundColor: '#fff',
     marginHorizontal: 10,
     borderRadius: 16,
@@ -75,6 +119,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#a21d21',
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
